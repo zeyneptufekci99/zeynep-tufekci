@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { colors } from "@/styles/colors";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,8 +23,28 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const themeVars = {
+    "--background": colors.background.DEFAULT,
+    "--foreground": colors.primary.foreground,
+    "--card": colors.background.secondary,
+    "--card-foreground": colors.primary.foreground,
+    "--popover": colors.background.secondary,
+    "--popover-foreground": colors.primary.foreground,
+    "--primary": colors.primary.DEFAULT,
+    "--primary-foreground": colors.primary.foreground,
+    "--secondary": colors.secondary.DEFAULT,
+    "--secondary-foreground": colors.secondary.foreground,
+    "--muted": colors.muted.DEFAULT,
+    "--muted-foreground": colors.muted.foreground,
+    "--accent": colors.accent.DEFAULT,
+    "--accent-foreground": colors.accent.foreground,
+    "--border": colors.border,
+    "--input": colors.border,
+    "--ring": colors.primary.DEFAULT,
+  } as unknown as React.CSSProperties;
+
   return (
-    <html lang="en">
+    <html lang="en" style={themeVars}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

@@ -1,13 +1,14 @@
 export const colors = {
   primary: {
-    //DEFAULT: "#7C3AED", // purple-600
-    DEFAULT: "#FFA500",
+    DEFAULT: "#59168b",
     foreground: "#ffffff",
+    dim: "#2D0F45",
   },
 
   secondary: {
-    DEFAULT: "#4F46E5", // indigo-600
+    DEFAULT: "#4F46E5",
     foreground: "#ffffff",
+    dim: "#1A1830",
   },
 
   background: {
@@ -26,4 +27,6 @@ export const colors = {
     DEFAULT: "#A855F7",
     foreground: "#ffffff",
   },
+
+  black: "#000000",
 };

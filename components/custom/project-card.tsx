@@ -1,36 +1,49 @@
+import Image from "next/image";
+import { Button } from "../ui/button";
 import {
   Card,
-  CardAction,
   CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
 } from "../ui/card";
+import Link from "next/link";
+import { generateBG } from "@/utils/generate-bg";
 
 export interface IProjectCard {
   projectName: string;
   buttonUrl: string;
   imageUrl: string;
+  description: string;
+  className?: string;
 }
 
 export const ProjectCard = ({
   projectName,
   buttonUrl,
   imageUrl,
+  description,
+  className,
 }: IProjectCard) => {
+  const bg = generateBG({
+    max: 260,
+    min: 140,
+  });
+
   return (
-    <Card>
+    <Card className={className} style={bg}>
       <CardHeader>
-        <CardTitle>Card Title</CardTitle>
-        <CardDescription>Card Description</CardDescription>
-        <CardAction>Card Action</CardAction>
+        <CardTitle>{projectName}</CardTitle>
+        <CardDescription>{description}</CardDescription>
       </CardHeader>
       <CardContent>
-        <p>Card Content</p>
+        <Image width="200" height={200} src={imageUrl} alt={projectName} />
       </CardContent>
-      <CardFooter>
-        <p>Card Footer</p>
+      <CardFooter className="border-0 bg-transparent items-center justify-center">
+        <Button>
+          <Link href={buttonUrl}>View Project </Link>
+        </Button>
       </CardFooter>
     </Card>
   );
