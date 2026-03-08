@@ -34,7 +34,7 @@ export default function Home() {
           <div className=""></div>
         </div>
       </section>
-      <div>projects</div>
+      <div className="w-3xl h-28 bg-primary">projects</div>
       <div>info</div>
     </div>
   );
