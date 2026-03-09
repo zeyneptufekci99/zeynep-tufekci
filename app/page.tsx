@@ -6,6 +6,7 @@ import {
   Separator,
 } from "@/components/index";
 import { useRef } from "react";
+import { Toaster } from "react-hot-toast";
 
 export default function Home() {
   const projectsRef = useRef<HTMLDivElement | null>(null);
@@ -30,6 +31,7 @@ export default function Home() {
           <InfoContainer />
         </div>
       </section>
+      <Toaster />
     </div>
   );
 }

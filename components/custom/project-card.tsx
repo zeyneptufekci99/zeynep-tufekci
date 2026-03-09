@@ -38,7 +38,14 @@ export const ProjectCard = ({
         <CardDescription>{description}</CardDescription>
       </CardHeader>
       <CardContent>
-        <Image width="200" height={200} src={imageUrl} alt={projectName} />
+        <Image
+          width={0}
+          height={0}
+          sizes="100vw"
+          style={{ width: "100%", height: "auto" }}
+          src={imageUrl}
+          alt={projectName}
+        />
       </CardContent>
       <CardFooter className="border-0 bg-transparent items-center justify-center">
         <Button>

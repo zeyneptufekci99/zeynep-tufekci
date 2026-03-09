@@ -1,5 +1,6 @@
 "use client";
 
+import toast from "react-hot-toast";
 import { Button } from "../ui/button";
 
 interface IHero {
@@ -12,6 +13,7 @@ export const Hero = ({ onClickConnect, onClickProjects }: IHero) => {
     link.href = "/ZeynepTufekciCV.pdf";
     link.download = "Zeynep-Tufekci-CV.pdf";
     link.click();
+    toast("CV downloaded successfully");
   };
 
   return (

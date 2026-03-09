@@ -2,6 +2,7 @@ import { InfoCard } from "./info-card";
 import Image from "next/image";
 import { aboutMe, contacts, experience, skills } from "@/data/dummy-data";
 import { Badge } from "../ui/badge";
+import toast from "react-hot-toast";
 
 export const InfoContainer = () => {
   const mailContact = contacts.find((c) => c.key === "mail");
@@ -9,9 +10,9 @@ export const InfoContainer = () => {
   const linkedinContact = contacts.find((c) => c.key === "linkedin");
   const phoneContact = contacts.find((c) => c.key === "phone");
 
-  const copyToClipboard = async (text: string) => {
+  const copyToClipboard = async (text: string, message: string) => {
     await navigator.clipboard.writeText(text);
-    alert("Copied!");
+    toast(message);
   };
   return (
     <div className="flex flex-col gap-4 pb-6  mb-6">
@@ -48,7 +49,12 @@ export const InfoContainer = () => {
             <div className="flex flex-col gap-4 text-sm">
               {mailContact && (
                 <div
-                  onClick={() => copyToClipboard(mailContact.info)}
+                  onClick={() =>
+                    copyToClipboard(
+                      mailContact.info,
+                      "Email copied successfully!",
+                    )
+                  }
                   className=" cursor-pointer flex items-center gap-3 hover:border-white/50 rounded-lg border border-white/10 bg-black/20 px-3 py-2"
                 >
                   <span className="text-lg text-primary-foreground/80">
@@ -60,7 +66,12 @@ export const InfoContainer = () => {
 
               {phoneContact && (
                 <div
-                  onClick={() => copyToClipboard(phoneContact.info)}
+                  onClick={() =>
+                    copyToClipboard(
+                      phoneContact.info,
+                      "Phone copied successfully!",
+                    )
+                  }
                   className=" hover:border-white/50 cursor-pointer flex items-center gap-3 rounded-lg border border-white/10 bg-black/20 px-3 py-2"
                 >
                   <span className="text-lg text-primary-foreground/80">
@@ -112,15 +123,15 @@ export const InfoContainer = () => {
                       : ""
                   }`}
                 >
-                  <div className="w-24 shrink-0 text-xs font-medium text-muted-foreground">
+                  <div className="w-24 shrink-0 text-sm font-medium text-muted-foreground">
                     {item.time}
                   </div>
                   <div className="flex flex-col gap-0.5">
-                    <div className="text-sm font-semibold">{item.company}</div>
-                    <div className="text-xs text-muted-foreground">
+                    <div className="text-lg font-semibold">{item.company}</div>
+                    <div className="text-sm text-muted-foreground">
                       {item.title}
                     </div>
-                    <div className="text-xs text-muted-foreground/80">
+                    <div className="text-sm text-muted-foreground/80">
                       {item.description}
                     </div>
                   </div>
