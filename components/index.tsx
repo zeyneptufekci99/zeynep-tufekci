@@ -5,3 +5,4 @@ export { Button } from "./ui/button";
 export { Hero } from "./custom/hero";
 export { ProjectContainer } from "./custom/project-container";
 export { InfoContainer } from "./custom/info-container";
+export { Badge } from "./ui/badge";

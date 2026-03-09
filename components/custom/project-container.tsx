@@ -30,7 +30,7 @@ export const ProjectContainer = () => {
           }}
           breakpoints={{
             640: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
+            1024: { slidesPerView: 4 },
           }}
           className="!overflow-hidden"
         >

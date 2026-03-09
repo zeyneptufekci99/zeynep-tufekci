@@ -6,20 +6,27 @@ import { ReactNode } from "react";
 export interface IInfoCard {
   title: string;
   children: ReactNode;
+  className?: string;
+  contentClassName?: string;
 }
 
-export const InfoCard = ({ title, children }: IInfoCard) => {
+export const InfoCard = ({
+  title,
+  children,
+  className,
+  contentClassName,
+}: IInfoCard) => {
   const bg = generateBG({
     from: `${colors.black} 0%`,
     to: `${colors.secondary.dim} 100%`,
   });
 
   return (
-    <Card style={bg}>
+    <Card className={className} style={bg}>
       <CardHeader>
         <CardTitle>{title}</CardTitle>
       </CardHeader>
-      <CardContent>{children}</CardContent>
+      <CardContent className={contentClassName}>{children}</CardContent>
     </Card>
   );
 };
