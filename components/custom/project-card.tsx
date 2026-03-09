@@ -34,10 +34,7 @@ export const ProjectCard = ({
   description,
   className,
 }: IProjectCard) => {
-  const bg = generateBG({
-    max: 260,
-    min: 140,
-  });
+  const bg = generateBG();
 
   return (
     <Card className={className} style={bg}>
@@ -60,14 +57,15 @@ export const ProjectCard = ({
         >
           {images.map((item) => (
             <SwiperSlide key={item.id} className="!h-auto">
-              <Image
-                width={0}
-                height={0}
-                sizes="100vw"
-                style={{ width: "100%", height: "auto" }}
-                src={item.url}
-                alt={`${projectName}-${item.id}`}
-              />
+              <div className="relative w-full h-48">
+                <Image
+                  fill
+                  sizes="100vw"
+                  style={{ objectFit: "cover" }}
+                  src={item.url}
+                  alt={`${projectName}-${item.id}`}
+                />
+              </div>
             </SwiperSlide>
           ))}
         </Swiper>

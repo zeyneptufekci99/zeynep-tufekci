@@ -16,10 +16,11 @@ export const InfoContainer = () => {
   };
   return (
     <div className="flex flex-col gap-4 pb-6  mb-6">
-      <div className="grid grid-cols-3 gap-4 h-fit items-stretch">
+      <div className="flex flex-col md:grid md:grid-cols-3 gap-4 h-fit items-stretch">
         <div className="rounded-xl h-full">
           <InfoCard
-            contentClassName="item-center justify-center flex flex-col"
+            className="h-full"
+            contentClassName="item-center justify-center flex flex-col h-full"
             title="About Me"
           >
             <div className="flex flex-col gap-4 items-center justify-center">
@@ -27,6 +28,40 @@ export const InfoContainer = () => {
               <div className="mt-3 text-sm leading-relaxed text-muted-foreground">
                 {aboutMe.info}
               </div>
+            </div>
+          </InfoCard>
+        </div>
+
+        <div className="rounded-xl h-full">
+          <InfoCard
+            contentClassName="h-full"
+            title="Experience"
+            className="h-full"
+          >
+            <div className="flex flex-col text-sm items-center w-full justify-between h-full">
+              {experience.map((item, index) => (
+                <div
+                  key={`${item.company}-${item.time}-${item.title}`}
+                  className={`flex gap-3 py-3 w-full ${
+                    index !== experience.length - 1
+                      ? "border-b border-white/10"
+                      : ""
+                  }`}
+                >
+                  <div className="w-24 shrink-0 text-sm font-medium text-muted-foreground">
+                    {item.time}
+                  </div>
+                  <div className="flex flex-col gap-0.5">
+                    <div className="text-lg font-semibold">{item.company}</div>
+                    <div className="text-sm text-muted-foreground">
+                      {item.title}
+                    </div>
+                    <div className="text-sm text-muted-foreground/80">
+                      {item.description}
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </InfoCard>
         </div>
@@ -103,40 +138,6 @@ export const InfoContainer = () => {
                   </a>
                 )}
               </div>
-            </div>
-          </InfoCard>
-        </div>
-
-        <div className="rounded-xl h-full">
-          <InfoCard
-            contentClassName="h-full"
-            title="Experience"
-            className="h-full"
-          >
-            <div className="flex flex-col text-sm items-center w-full justify-between h-full">
-              {experience.map((item, index) => (
-                <div
-                  key={`${item.company}-${item.time}-${item.title}`}
-                  className={`flex gap-3 py-3 w-full ${
-                    index !== experience.length - 1
-                      ? "border-b border-white/10"
-                      : ""
-                  }`}
-                >
-                  <div className="w-24 shrink-0 text-sm font-medium text-muted-foreground">
-                    {item.time}
-                  </div>
-                  <div className="flex flex-col gap-0.5">
-                    <div className="text-lg font-semibold">{item.company}</div>
-                    <div className="text-sm text-muted-foreground">
-                      {item.title}
-                    </div>
-                    <div className="text-sm text-muted-foreground/80">
-                      {item.description}
-                    </div>
-                  </div>
-                </div>
-              ))}
             </div>
           </InfoCard>
         </div>
