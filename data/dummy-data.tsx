@@ -6,38 +6,71 @@ import { IoMailOutline } from "react-icons/io5";
 export const projects = [
   {
     id: 1,
-    projectName: "Proje1",
-    buttonUrl: "url",
-    imageUrl: "/project.jpg",
-    description: "description",
+    projectName: "Zeynep Tüfekçi",
+    buttonUrl: "https://github.com/zeyneptufekci99/zeynep-tufekci",
+    description: "React.js and Next.js",
+    images: [
+      {
+        id: "zeynep-tufekci-hero",
+        url: "/zeynep-tufekci-hero.png",
+      },
+      {
+        id: "zeynep-tufekci-content",
+        url: "/zeynep-tufekci-content.png",
+      },
+    ],
   },
   {
     id: 2,
-    projectName: "Proje2",
-    buttonUrl: "url",
-    imageUrl: "/project.jpg",
-    description: "description 2",
+    projectName: "Cook Assist",
+    buttonUrl: "https://github.com/zeyneptufekci99/cook-assist",
+    description: "React.js and Vue.js",
+    images: [
+      {
+        id: "cook-assist",
+        url: "/cook-assist.png",
+      },
+      {
+        id: "cook-assist-2",
+        url: "/cook-assist-2.png",
+      },
+    ],
   },
   {
     id: 3,
     projectName: "Proje 3",
     buttonUrl: "url",
-    imageUrl: "/project.jpg",
     description: "description 3",
+    images: [
+      {
+        id: "proje-3",
+        url: "/project.jpg",
+      },
+    ],
   },
   {
     id: 4,
     projectName: "Proje 4",
     buttonUrl: "url",
-    imageUrl: "/project.jpg",
     description: "description 4",
+    images: [
+      {
+        id: "proje-3",
+        url: "/project.jpg",
+      },
+    ],
   },
   {
     id: 5,
     projectName: "Proje 5",
     buttonUrl: "url",
-    imageUrl: "/project.jpg",
     description: "description 5",
+    images: [
+      {
+        id: "proje-3",
+        url: "/project.jpg",
+      },
+    ],
   },
 ];
 

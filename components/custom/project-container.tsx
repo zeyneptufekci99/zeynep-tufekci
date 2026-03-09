@@ -5,7 +5,7 @@ import { ProjectCard } from "./project-card";
 import { Separator } from "./separator";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Keyboard } from "swiper/modules";
+import { Keyboard } from "swiper/modules";
 
 import "swiper/css";
 
@@ -20,14 +20,11 @@ export const ProjectContainer = () => {
       <div className="w-full max-w-full overflow-hidden">
         <Swiper
           loop={true}
-          modules={[Keyboard, Autoplay]}
+          modules={[Keyboard]}
           keyboard={{ enabled: true }}
           spaceBetween={24}
           slidesPerView={1}
-          autoplay={{
-            delay: 2500,
-            disableOnInteraction: false,
-          }}
+          autoplay={false}
           breakpoints={{
             640: { slidesPerView: 2 },
             1024: { slidesPerView: 4 },
@@ -40,7 +37,7 @@ export const ProjectContainer = () => {
                 className="max-w-full"
                 projectName={item.projectName}
                 buttonUrl={item.buttonUrl}
-                imageUrl={item.imageUrl}
+                images={item.images}
                 description={item.description}
               />
             </SwiperSlide>

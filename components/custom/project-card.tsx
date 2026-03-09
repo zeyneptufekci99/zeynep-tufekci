@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { Button } from "../ui/button";
 import {
@@ -10,11 +12,17 @@ import {
 } from "../ui/card";
 import Link from "next/link";
 import { generateBG } from "@/utils/generate-bg";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import { Autoplay, Keyboard } from "swiper/modules";
 
 export interface IProjectCard {
   projectName: string;
   buttonUrl: string;
-  imageUrl: string;
+  images: {
+    id: string;
+    url: string;
+  }[];
   description: string;
   className?: string;
 }
@@ -22,7 +30,7 @@ export interface IProjectCard {
 export const ProjectCard = ({
   projectName,
   buttonUrl,
-  imageUrl,
+  images,
   description,
   className,
 }: IProjectCard) => {
@@ -38,18 +46,37 @@ export const ProjectCard = ({
         <CardDescription>{description}</CardDescription>
       </CardHeader>
       <CardContent>
-        <Image
-          width={0}
-          height={0}
-          sizes="100vw"
-          style={{ width: "100%", height: "auto" }}
-          src={imageUrl}
-          alt={projectName}
-        />
+        <Swiper
+          loop={true}
+          modules={[Keyboard, Autoplay]}
+          keyboard={{ enabled: true }}
+          spaceBetween={24}
+          slidesPerView={1}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+          className="!overflow-hidden"
+        >
+          {images.map((item) => (
+            <SwiperSlide key={item.id} className="!h-auto">
+              <Image
+                width={0}
+                height={0}
+                sizes="100vw"
+                style={{ width: "100%", height: "auto" }}
+                src={item.url}
+                alt={`${projectName}-${item.id}`}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </CardContent>
       <CardFooter className="border-0 bg-transparent items-center justify-center">
         <Button>
-          <Link href={buttonUrl}>View Project </Link>
+          <Link target="__blank" href={buttonUrl}>
+            View Project{" "}
+          </Link>
         </Button>
       </CardFooter>
     </Card>
